@@ -30,3 +30,9 @@ docker container ls
 docker container ls -a (all container exited too)
 docker container run ubuntu sleep 30
 docker container ls (will show above for 30 secs and then will exit)
+
+docker container run nginx
+https://docs.docker.com/get-started/overview/
+
+docker container rm <container-ID> (removing container)
+
