@@ -149,3 +149,7 @@ git --version
 
 how to create docker image from running container (docker commit)
 
+docker container run -it ubuntu /bin/bash
+cd /tmp
+touch 1..10
+docker container commit --author 'Gaurav sharma" -m "this is test message for commit" <containerID> my_test_image_name
