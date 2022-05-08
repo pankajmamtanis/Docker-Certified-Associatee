@@ -79,4 +79,37 @@ go inside teh nginx container bin/bash
 docker 3600 --> xyz:80
 docker container run -d -p 3600:80 --name test1_web nginx (mapping outside machine port 3600 to container port 80 which is running nginx to take care of requests)
 netstat -nltp (3600 port at the local machine will be in listening state)
+now this will be accessible via 172.16.0.7(containerIP) with port 80 /// or 192.168.0.104:3600 inside the contianer or from the machine.
 
+for more software installs inside container
+docker container exec -it <container-ID> bin/bash -- then install what is needed
+
+docker container rename <containerID> tiger_web (renaming a container)
+
+docker container restart <containerID>
+
+------------------------------------------------------------------------------------------
+
+Attach to running container, kill, wait, pause, unpause, prune, port
+
+run nginx container
+docker container run -d nginx (in background)
+docker cotnaincer attach <containerid> (bring the same container in foreground)
+to test it, get the IP address of container using docker inspect, access from chrome, then each time we access we get logs, that it got accessed.
+
+docker container run -itd ubuntu /bin/bash
+docker container attach <containerId..>
+
+docker stop - stops all processes and then brings it down
+docker kill - immediately kills container
+
+docker container wait <containerID> (this waits till container stops and shares us the exit status)
+
+docker container pause <containerID> (pauses the container)
+docker container unpause <containerID> (unpauses the container)
+
+docker container prune (deletes all containers not in use)
+
+docker container port tigir_web (port mapping)
+__________________________________________________________________________________________________
+ create docker container, diff docker container and copy file into container
