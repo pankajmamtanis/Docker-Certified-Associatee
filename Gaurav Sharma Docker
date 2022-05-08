@@ -8,3 +8,5 @@ Docker Introduction & Architecture
 
 Installation, docker info and docker version commands
 sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager ...... from docker website
+sudo dnf install docker-ce
