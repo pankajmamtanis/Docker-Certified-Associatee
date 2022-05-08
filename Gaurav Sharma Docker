@@ -10,3 +10,23 @@ Installation, docker info and docker version commands
 sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager ...... from docker website
 sudo dnf install docker-ce
+
+docker info
+service docker status
+service docker start /systemctl start docker
+docker info
+docker version
+
+
+Create first container, list container, remove container
+docker --help |less
+docker container ls
+docker image ls
+docker network ls
+docker ps
+
+docker container run ubuntu cat /etc/os-release 9run command and close container
+docker container ls
+docker container ls -a (all container exited too)
+docker container run ubuntu sleep 30
+docker container ls (will show above for 30 secs and then will exit)
