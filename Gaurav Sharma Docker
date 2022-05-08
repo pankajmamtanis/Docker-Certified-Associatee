@@ -170,6 +170,12 @@ docker container run -it busybox /bin/bash
 dockerhub-ubuntu versions 14.0.4:trustu-=20180929:trusty (either of the tags can be used for pull)
 docker pull ubuntu:14.0.4
 
+can see the dockerfile for a specific image from dockerhub in dockerfile section of teh said image.
+
+for docker hub push
+docker image tag my_test_image_name hub.docker.com/pankajmamtanis/my_test_image_name (taggin the image)
+docker login (user/pass)
+docker push pankajmamtanis/my_test_image_name (pushing the image on dockerhub on your account)
 
 
 
