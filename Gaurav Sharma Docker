@@ -194,20 +194,57 @@ docker image rmi <image name>:tag (remove image)
 
 docker image inspect wordpress |less (inspect image)
 
+docker image prune <imagename> (removes unused images - all)
 
+---------------------------------------------------------------------------------------------------
+Docker save/docker load. Diff between export and save & load &import
 
+docker image save logstash > logstash.tar (exports running image to tar format)
+docker image history logstash
+docker image rm logstash (removes image)
 
+docker image load < logstash.tar (loads image from tar export of an image)
 
+docker image save (gives tar and puts all layer info)
+docker container export (running container export except from volume mount - with no Layering)
+docker image save ubuntu:10.0.4 (if we dont specify the tag then it will pickup all images names ubuntu and export to .tar file)
 
+docker image load (contains all information - name, repo, image, tag all info is there)
+docker image import (does not have above info just image)
 
+-----------------------------------------------------------------------------------------------
+Layered Architecture and Dockerfiles
+1.
+vi Dockerfile (use same filename)
 
+FROM ubuntu:16.04 (base image name for the build, save and close)
 
+docker image ls ( to know what we have)
 
+docker image build -t myubuntu:1 . (for building image using dockerfile)
 
+check - docker image ls (find the image ID as the same from which it got built and what we got as the new image)
 
+now build container using the new image
+docker container run -it myubuntu:1
 
+2.
+FROM ubuntu:16.04 (base image name for the build, save and close)
+apt-get update && apt-get install -y tree (docker file addition - new layer with each line addition)
 
+docker image build -t myubuntu:2 . (for building image using dockerfile)
 
+now build container using the new image
+docker container run -it myubuntu:2
+--- now tree will work in the new container shell
 
+3. (Make sure you just have one ubuntu 14.0.4 and nothing else in the image ls)
+FROM ubuntu:14.04 (base image name for the build, save and close)
+apt-get update && apt-get install -y tree (docker file addition - new layer with each line addition)
+RUN touch /tmp/1.txt
+RUN touch /tmp/2.txt
+RUN touch /tmp/3.txt
+RUN touch /tmp/4.txt
+RUN touch /tmp/5.txt
 
 
