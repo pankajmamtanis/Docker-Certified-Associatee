@@ -1,11 +1,11 @@
 Introduction to Playlist
-
+------------------------------------------------------------------------------------------
 Docker Introduction & Architecture
   project1 --> pywinrm_1.1 (Environment-1)
   project2 --> pywinrm_1.2 (Environment-2)
   Each application as a different container VS with VM each application needs a host OS to be installed, quite heavy
   Infra> Host OS> Docker> App-A/App-B       VS        Infra> Hypervisor>VM-Guest OS-AppA       Infra> Hypervisor>VM-Guest OS-AppB
-
+------------------------------------------------------------------------------------------
 Installation, docker info and docker version commands
 sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager ...... from docker website
@@ -17,7 +17,7 @@ service docker start /systemctl start docker
 docker info
 docker version
 
-
+------------------------------------------------------------------------------------------
 Create first container, list container, remove container
 docker --help |less
 docker container ls
@@ -35,4 +35,12 @@ docker container run nginx
 https://docs.docker.com/get-started/overview/
 
 docker container rm <container-ID> (removing container)
+------------------------------------------------------------------------------------------
+create a container in background , stop, start, detach container
 
+docker container ls -a
+docker container start <container-ID of dead container from ls -a>
+docker container stop <container-ID of container from ls >
+
+docker container run -d ubuntu sleep 30 ( -d runs the container in backgroud in DETACH MODE)
+docker container run -d -it ubuntu /bin/bash ( interactive terminal (teletype) - shell) --. CTRL-D or exit to come out.
