@@ -121,7 +121,31 @@ docker container start <containerID>
 docker container diff <containerID> (shows all changes which are made on the container) c-file/dir created      a-file/dir add      d-file delete
 docker container run -it ubuntu /bin/bash (inside the container)
 docker container diff <containerID> (no change for now as we just entered bin/bash)
-watch 'docker container diff <containerID>' (live command which runs this command every 2secs)
+watch 'docker container diff <containerID>' (live command which runs this command every 2secs) try to run this in second terminal
+touch few files and dir and we will be able to see the c and a movment in watch terminal
 
+docker container cp test/ <containerID>:/tmp/ (copies from local to docker file structure)
 
+__________________________________________________________________________________________________
+
+Export and Import of container (update the image file and udpating the same with build not the source code which can be used elsewhere)
+
+docker container run -it ubuntu /bin/bash
+apt-get install update
+apt-get install tree git -y
+
+docker container export <containerID> >my-ubuntu-tree-git.tar OR (exporting the image in .tar format)
+docker container export <containerID> -o my-ubuntu-tree-git1.tar
+
+docker image ls (to check what are existing one before we run below command)
+docker image import my-ubuntu-tree-git1.tar my_ubuntu_t_g
+docker image ls
+docker container run -it my_ubuntu_t_g /bin/bash
+then validate if tree and git--help are installed
+tree
+git --version
+
+------------------------------------------------------------------------------------------------
+
+how to create docker image from running container (docker commit)
 
