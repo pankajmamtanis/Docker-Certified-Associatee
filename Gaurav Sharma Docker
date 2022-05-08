@@ -112,4 +112,16 @@ docker container prune (deletes all containers not in use)
 
 docker container port tigir_web (port mapping)
 __________________________________________________________________________________________________
+ 
  create docker container, diff docker container and copy file into container
+ 
+docker container create ubuntu sleep 60 (will only create not run it, only shows it in created state)
+docker container start <containerID> 
+
+docker container diff <containerID> (shows all changes which are made on the container) c-file/dir created      a-file/dir add      d-file delete
+docker container run -it ubuntu /bin/bash (inside the container)
+docker container diff <containerID> (no change for now as we just entered bin/bash)
+watch 'docker container diff <containerID>' (live command which runs this command every 2secs)
+
+
+
