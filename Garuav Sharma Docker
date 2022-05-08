@@ -1,0 +1,7 @@
+Introduction to Playlist
+
+Docker Introduction & Architecture
+  project1 --> pywinrm_1.1 (Environment-1)
+  project2 --> pywinrm_1.2 (Environment-2)
+  Each application as a different container VS with VM each application needs a host OS to be installed, quite heavy
+  Infra> Host OS> Docker> App-A/App-B       VS        Infra> Hypervisor>VM-Guest OS-AppA       Infra> Hypervisor>VM-Guest OS-AppB
