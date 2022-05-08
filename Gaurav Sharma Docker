@@ -44,3 +44,39 @@ docker container stop <container-ID of container from ls >
 
 docker container run -d ubuntu sleep 30 ( -d runs the container in backgroud in DETACH MODE)
 docker container run -d -it ubuntu /bin/bash ( interactive terminal (teletype) - shell) --. CTRL-D or exit to come out.
+
+with the above to keep container running - CTRL+p+Q
+
+docker container ls -aq (shows Id for all containers)
+docker container rm $(docker container ls -aq) (removes all containers, using the output for all containers stopped or running in our environment)
+
+------------------------------------------------------------------------------------------
+
+DOCKER CONTAINER INSPECT
+
+docker container run -d nginx
+docker container inspect <container-ID> (can check IP address and open ip address on chrome to show ngnix)
+
+------------------------------------------------------------------------------------------
+
+whats going on inside the container
+
+docker container inspect
+docker container logs <container-ID>
+docker container top <container-ID>
+ps -aux
+docker container stats (gives stats of cpu muemory network for running containers)
+
+------------------------------------------------------------------------------------------
+
+Docker port mapping, rename container, restart container, exec container
+
+as per previous we had one nginx container running, check IP address. and web browser access its working
+access the same nginx from other computer, we can achieve this through port forwarding.
+
+go inside teh nginx container bin/bash
+
+docker 3600 --> xyz:80
+docker container run -d -p 3600:80 --name test1_web nginx (mapping outside machine port 3600 to container port 80 which is running nginx to take care of requests)
+netstat -nltp (3600 port at the local machine will be in listening state)
+
