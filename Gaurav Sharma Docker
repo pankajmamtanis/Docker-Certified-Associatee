@@ -177,6 +177,23 @@ docker image tag my_test_image_name hub.docker.com/pankajmamtanis/my_test_image_
 docker login (user/pass)
 docker push pankajmamtanis/my_test_image_name (pushing the image on dockerhub on your account)
 
+then you may do a docker pull from your account, the validate the installed tree and git installs
+
+------------------------------------------------------------------------------------------------------
+
+How to inspect remove,inspect, list and history for the docker image
+
+docker image ls (list of images)
+docker image ls --format '{{.ID}} , {{.Repository}}' ---> (docker docs format the output)
+
+docker image ls
+docker image history ubuntu
+
+docker image rm -f <image name>
+docker image rmi <image name>:tag (remove image)
+
+docker image inspect wordpress |less (inspect image)
+
 
 
 
