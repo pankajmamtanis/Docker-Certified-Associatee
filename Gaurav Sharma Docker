@@ -153,3 +153,38 @@ docker container run -it ubuntu /bin/bash
 cd /tmp
 touch 1..10
 docker container commit --author 'Gaurav sharma" -m "this is test message for commit" <containerID> my_test_image_name
+docker image ls
+
+remove the existing container spun on ubuntu
+docker container rm -f <containerId>
+
+docker container run -it my_test_image_name /bin/bash
+
+validate by checking the files in tmp
+
+------------------------------------------------------------------------------------------------
+How to push image on docker hub, image tag, image pull, docker login (first checks if image is available locally, if not thenly it goes online on docker-hub to pull it.
+
+docker container run -it busybox /bin/bash
+
+dockerhub-ubuntu versions 14.0.4:trustu-=20180929:trusty (either of the tags can be used for pull)
+docker pull ubuntu:14.0.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
